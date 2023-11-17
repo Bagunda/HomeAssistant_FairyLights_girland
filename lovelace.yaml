@@ -1,0 +1,175 @@
+header_cards:
+  justify_content: space-between
+  badges:
+    - entity: binary_sensor.datchik_dyma_smoke
+      name: ''
+  cards:
+    - type: custom:mushroom-chips-card
+      chips:
+        - type: weather
+          entity: weather.forecast_radikgk3v_hourly
+          show_conditions: true
+          show_temperature: true
+          style: |
+            ha-card {
+              background: rgba(0,0,0,0);
+            }
+          tap_action:
+            action: navigate
+            navigation_path: /lovelace-desktop/weather-and-temperature
+views:
+  - title: Home
+    cards:
+      - square: false
+        type: grid
+        cards:
+          - show_name: true
+            show_icon: true
+            type: button
+            tap_action:
+              action: toggle
+            entity: light.fairy_girlianda_na_kukhne
+          - type: custom:mushroom-light-card
+            entity: light.fairy_girlianda_na_kukhne
+            show_color_control: true
+            fill_container: false
+            collapsible_controls: false
+            show_color_temp_control: false
+            use_light_color: true
+            show_brightness_control: true
+          - type: entities
+            entities:
+              - entity: sensor.fairy_mode
+              - entity: sensor.fairy_effect
+              - entity: input_select.da_fairy_lights_effects
+          - type: custom:mushroom-number-card
+            entity: input_number.fairy_lights_effects_brightness
+            name: Яркость когда эффекты
+            fill_container: false
+            display_mode: slider
+          - square: true
+            type: grid
+            title: Эффекты
+            cards:
+              - show_name: true
+                show_icon: true
+                type: button
+                entity: switch.fairy_lights_effect_1
+                show_state: false
+                name: '1'
+              - show_name: true
+                show_icon: true
+                type: button
+                entity: switch.fairy_lights_effect_2
+                show_state: false
+                name: '2'
+              - show_name: true
+                show_icon: true
+                type: button
+                entity: switch.fairy_lights_effect_3
+                show_state: false
+                name: '3'
+              - show_name: true
+                show_icon: true
+                type: button
+                entity: switch.fairy_lights_effect_4
+                show_state: false
+                name: '4'
+              - show_name: true
+                show_icon: true
+                type: button
+                entity: switch.fairy_lights_effect_5
+                show_state: false
+                name: '5'
+              - show_name: true
+                show_icon: true
+                type: button
+                entity: switch.fairy_lights_effect_6
+                show_state: false
+                name: '6'
+              - show_name: true
+                show_icon: true
+                type: button
+                entity: switch.fairy_lights_effect_7
+                show_state: false
+                name: '7'
+              - show_name: true
+                show_icon: true
+                type: button
+                entity: switch.fairy_lights_effect_8
+                show_state: false
+                name: '8'
+              - show_name: true
+                show_icon: true
+                type: button
+                entity: switch.fairy_lights_effect_9
+                show_state: false
+                name: '9'
+              - show_name: true
+                show_icon: true
+                type: button
+                entity: switch.fairy_lights_effect_10
+                show_state: false
+                name: '10'
+              - show_name: true
+                show_icon: true
+                type: button
+                entity: switch.fairy_lights_effect_11
+                show_state: false
+                name: '11'
+              - show_name: true
+                show_icon: true
+                type: button
+                entity: switch.fairy_lights_effect_12
+                show_state: false
+                name: '12'
+              - show_name: true
+                show_icon: true
+                type: button
+                entity: switch.fairy_lights_effect_13
+                show_state: false
+                name: '13'
+              - show_name: true
+                show_icon: true
+                type: button
+                entity: switch.fairy_lights_effect_14
+                show_state: false
+                name: '14'
+              - show_name: true
+                show_icon: true
+                type: button
+                entity: switch.fairy_lights_effect_15
+                show_state: false
+                name: '15'
+              - show_name: true
+                show_icon: true
+                type: button
+                entity: switch.fairy_lights_effect_16
+                show_state: false
+                name: '16'
+              - show_name: true
+                show_icon: true
+                type: button
+                entity: switch.fairy_lights_effect_17
+                show_state: false
+                name: '17'
+              - show_name: true
+                show_icon: true
+                type: button
+                entity: switch.fairy_lights_effect_18
+                show_state: false
+                name: '18'
+              - show_name: true
+                show_icon: true
+                type: button
+                entity: switch.fairy_lights_effect_19
+                show_state: false
+                name: '19'
+              - show_name: true
+                show_icon: true
+                type: button
+                entity: switch.fairy_lights_effect_20
+                show_state: false
+                name: '20'
+            columns: 5
+        columns: 1
