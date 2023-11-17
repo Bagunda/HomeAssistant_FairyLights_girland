@@ -1,22 +1,3 @@
-header_cards:
-  justify_content: space-between
-  badges:
-    - entity: binary_sensor.datchik_dyma_smoke
-      name: ''
-  cards:
-    - type: custom:mushroom-chips-card
-      chips:
-        - type: weather
-          entity: weather.forecast_radikgk3v_hourly
-          show_conditions: true
-          show_temperature: true
-          style: |
-            ha-card {
-              background: rgba(0,0,0,0);
-            }
-          tap_action:
-            action: navigate
-            navigation_path: /lovelace-desktop/weather-and-temperature
 views:
   - title: Home
     cards:
