@@ -1,0 +1,497 @@
+
+da_fairy_lights:
+
+    sensor:
+      - platform: template
+        sensors:
+          fairy_lights_effects_brightness_endstring:
+            friendly_name: "Гирлянда FairyLight. Окончание строки для яркости"
+            value_template: >
+                {%set entity1 = states.input_number.fairy_lights_effects_brightness.state | int%}
+                {% if entity1 | int == 1 %}
+                  {%set bright = "0fa"%}
+                {% elif entity1 | int == 2 %}
+                  {%set bright = "1f4"%}
+                {% elif entity1 | int == 3 %}
+                  {%set bright = "3e8"%}
+                {% else %}
+                  {%set bright = "0fa"%}
+                {% endif %}
+                {{bright}}
+
+    input_number:
+      fairy_lights_effects_brightness:
+        min: 1
+        max: 3
+        step: 1
+    
+    
+    switch:
+      - platform: template
+        switches:
+          fairy_lights_effect_1:
+            friendly_name: Гирлянда FairyLight. Эффект 1
+            icon_template: phu:scene-dynamic
+            unique_id: fairy_lights_effect_1
+            value_template: >
+              {%set effect_num = "01"%}
+              {%if is_state('sensor.fairy_effect', effect_num + '00fa') or is_state('sensor.fairy_effect', effect_num + '01f4') or is_state('sensor.fairy_effect', effect_num + '03e8')%}
+                true
+              {%- else -%}
+                false
+              {%- endif %}
+            turn_on:
+              service: input_select.set_options
+              target:
+                entity_id: input_select.da_fairy_lights_effects
+              data:
+                options: "{{'010' + states.sensor.fairy_lights_effects_brightness_endstring.state}}"
+            turn_off:
+            
+          fairy_lights_effect_2:
+            friendly_name: Гирлянда FairyLight. Эффект 2
+            icon_template: phu:scene-dynamic
+            unique_id: fairy_lights_effect_2
+            value_template: >
+              {%set effect_num = "02"%}
+              {%if is_state('sensor.fairy_effect', effect_num + '00fa') or is_state('sensor.fairy_effect', effect_num + '01f4') or is_state('sensor.fairy_effect', effect_num + '03e8')%}
+                true
+              {%- else -%}
+                false
+              {%- endif %}
+            turn_on:
+              service: input_select.set_options
+              target:
+                entity_id: input_select.da_fairy_lights_effects
+              data:
+                options: "{{'020' + states.sensor.fairy_lights_effects_brightness_endstring.state}}"
+            turn_off:
+            
+          fairy_lights_effect_3:
+            friendly_name: Гирлянда FairyLight. Эффект 3
+            icon_template: phu:scene-dynamic
+            unique_id: fairy_lights_effect_3
+            value_template: >
+              {%set effect_num = "03"%}
+              {%if is_state('sensor.fairy_effect', effect_num + '00fa') or is_state('sensor.fairy_effect', effect_num + '01f4') or is_state('sensor.fairy_effect', effect_num + '03e8')%}
+                true
+              {%- else -%}
+                false
+              {%- endif %}
+            turn_on:
+              service: input_select.set_options
+              target:
+                entity_id: input_select.da_fairy_lights_effects
+              data:
+                options: "{{'030' + states.sensor.fairy_lights_effects_brightness_endstring.state}}"
+            turn_off:
+            
+          fairy_lights_effect_4:
+            friendly_name: Гирлянда FairyLight. Эффект 4
+            icon_template: phu:scene-dynamic
+            unique_id: fairy_lights_effect_4
+            value_template: >
+              {%set effect_num = "04"%}
+              {%if is_state('sensor.fairy_effect', effect_num + '00fa') or is_state('sensor.fairy_effect', effect_num + '01f4') or is_state('sensor.fairy_effect', effect_num + '03e8')%}
+                true
+              {%- else -%}
+                false
+              {%- endif %}
+            turn_on:
+              service: input_select.set_options
+              target:
+                entity_id: input_select.da_fairy_lights_effects
+              data:
+                options: "{{'040' + states.sensor.fairy_lights_effects_brightness_endstring.state}}"
+            turn_off:
+            
+          fairy_lights_effect_5:
+            friendly_name: Гирлянда FairyLight. Эффект 5
+            icon_template: phu:scene-dynamic
+            unique_id: fairy_lights_effect_5
+            value_template: >
+              {%set effect_num = "05"%}
+              {%if is_state('sensor.fairy_effect', effect_num + '00fa') or is_state('sensor.fairy_effect', effect_num + '01f4') or is_state('sensor.fairy_effect', effect_num + '03e8')%}
+                true
+              {%- else -%}
+                false
+              {%- endif %}
+            turn_on:
+              service: input_select.set_options
+              target:
+                entity_id: input_select.da_fairy_lights_effects
+              data:
+                options: "{{'050' + states.sensor.fairy_lights_effects_brightness_endstring.state}}"
+            turn_off:
+            
+          fairy_lights_effect_6:
+            friendly_name: Гирлянда FairyLight. Эффект 6
+            icon_template: phu:scene-dynamic
+            unique_id: fairy_lights_effect_6
+            value_template: >
+              {%set effect_num = "06"%}
+              {%if is_state('sensor.fairy_effect', effect_num + '00fa') or is_state('sensor.fairy_effect', effect_num + '01f4') or is_state('sensor.fairy_effect', effect_num + '03e8')%}
+                true
+              {%- else -%}
+                false
+              {%- endif %}
+            turn_on:
+              service: input_select.set_options
+              target:
+                entity_id: input_select.da_fairy_lights_effects
+              data:
+                options: "{{'060' + states.sensor.fairy_lights_effects_brightness_endstring.state}}"
+            turn_off:
+            
+          fairy_lights_effect_7:
+            friendly_name: Гирлянда FairyLight. Эффект 7
+            icon_template: phu:scene-dynamic
+            unique_id: fairy_lights_effect_7
+            value_template: >
+              {%set effect_num = "07"%}
+              {%if is_state('sensor.fairy_effect', effect_num + '00fa') or is_state('sensor.fairy_effect', effect_num + '01f4') or is_state('sensor.fairy_effect', effect_num + '03e8')%}
+                true
+              {%- else -%}
+                false
+              {%- endif %}
+            turn_on:
+              service: input_select.set_options
+              target:
+                entity_id: input_select.da_fairy_lights_effects
+              data:
+                options: "{{'070' + states.sensor.fairy_lights_effects_brightness_endstring.state}}"
+            turn_off:
+            
+          fairy_lights_effect_8:
+            friendly_name: Гирлянда FairyLight. Эффект 8
+            icon_template: phu:scene-dynamic
+            unique_id: fairy_lights_effect_8
+            value_template: >
+              {%set effect_num = "08"%}
+              {%if is_state('sensor.fairy_effect', effect_num + '00fa') or is_state('sensor.fairy_effect', effect_num + '01f4') or is_state('sensor.fairy_effect', effect_num + '03e8')%}
+                true
+              {%- else -%}
+                false
+              {%- endif %}
+            turn_on:
+              service: input_select.set_options
+              target:
+                entity_id: input_select.da_fairy_lights_effects
+              data:
+                options: "{{'080' + states.sensor.fairy_lights_effects_brightness_endstring.state}}"
+            turn_off:
+            
+          fairy_lights_effect_9:
+            friendly_name: Гирлянда FairyLight. Эффект 9
+            icon_template: phu:scene-dynamic
+            unique_id: fairy_lights_effect_9
+            value_template: >
+              {%set effect_num = "09"%}
+              {%if is_state('sensor.fairy_effect', effect_num + '00fa') or is_state('sensor.fairy_effect', effect_num + '01f4') or is_state('sensor.fairy_effect', effect_num + '03e8')%}
+                true
+              {%- else -%}
+                false
+              {%- endif %}
+            turn_on:
+              service: input_select.set_options
+              target:
+                entity_id: input_select.da_fairy_lights_effects
+              data:
+                options: "{{'090' + states.sensor.fairy_lights_effects_brightness_endstring.state}}"
+            turn_off:
+            
+          fairy_lights_effect_10:
+            friendly_name: Гирлянда FairyLight. Эффект 10
+            icon_template: phu:scene-dynamic
+            unique_id: fairy_lights_effect_10
+            value_template: >
+              {%set effect_num = "10"%}
+              {%if is_state('sensor.fairy_effect', effect_num + '00fa') or is_state('sensor.fairy_effect', effect_num + '01f4') or is_state('sensor.fairy_effect', effect_num + '03e8')%}
+                true
+              {%- else -%}
+                false
+              {%- endif %}
+            turn_on:
+              service: input_select.set_options
+              target:
+                entity_id: input_select.da_fairy_lights_effects
+              data:
+                options: "{{'100' + states.sensor.fairy_lights_effects_brightness_endstring.state}}"
+            turn_off:
+            
+          fairy_lights_effect_11:
+            friendly_name: Гирлянда FairyLight. Эффект 11
+            icon_template: phu:scene-dynamic
+            unique_id: fairy_lights_effect_11
+            value_template: >
+              {%set effect_num = "11"%}
+              {%if is_state('sensor.fairy_effect', effect_num + '00fa') or is_state('sensor.fairy_effect', effect_num + '01f4') or is_state('sensor.fairy_effect', effect_num + '03e8')%}
+                true
+              {%- else -%}
+                false
+              {%- endif %}
+            turn_on:
+              service: input_select.set_options
+              target:
+                entity_id: input_select.da_fairy_lights_effects
+              data:
+                options: "{{'110' + states.sensor.fairy_lights_effects_brightness_endstring.state}}"
+            turn_off:
+            
+          fairy_lights_effect_12:
+            friendly_name: Гирлянда FairyLight. Эффект 12
+            icon_template: phu:scene-dynamic
+            unique_id: fairy_lights_effect_12
+            value_template: >
+              {%set effect_num = "12"%}
+              {%if is_state('sensor.fairy_effect', effect_num + '00fa') or is_state('sensor.fairy_effect', effect_num + '01f4') or is_state('sensor.fairy_effect', effect_num + '03e8')%}
+                true
+              {%- else -%}
+                false
+              {%- endif %}
+            turn_on:
+              service: input_select.set_options
+              target:
+                entity_id: input_select.da_fairy_lights_effects
+              data:
+                options: "{{'120' + states.sensor.fairy_lights_effects_brightness_endstring.state}}"
+            turn_off:
+            
+          fairy_lights_effect_13:
+            friendly_name: Гирлянда FairyLight. Эффект 13
+            icon_template: phu:scene-dynamic
+            unique_id: fairy_lights_effect_13
+            value_template: >
+              {%set effect_num = "13"%}
+              {%if is_state('sensor.fairy_effect', effect_num + '00fa') or is_state('sensor.fairy_effect', effect_num + '01f4') or is_state('sensor.fairy_effect', effect_num + '03e8')%}
+                true
+              {%- else -%}
+                false
+              {%- endif %}
+            turn_on:
+              service: input_select.set_options
+              target:
+                entity_id: input_select.da_fairy_lights_effects
+              data:
+                options: "{{'130' + states.sensor.fairy_lights_effects_brightness_endstring.state}}"
+            turn_off:
+            
+          fairy_lights_effect_14:
+            friendly_name: Гирлянда FairyLight. Эффект 14
+            icon_template: phu:scene-dynamic
+            unique_id: fairy_lights_effect_14
+            value_template: >
+              {%set effect_num = "14"%}
+              {%if is_state('sensor.fairy_effect', effect_num + '00fa') or is_state('sensor.fairy_effect', effect_num + '01f4') or is_state('sensor.fairy_effect', effect_num + '03e8')%}
+                true
+              {%- else -%}
+                false
+              {%- endif %}
+            turn_on:
+              service: input_select.set_options
+              target:
+                entity_id: input_select.da_fairy_lights_effects
+              data:
+                options: "{{'140' + states.sensor.fairy_lights_effects_brightness_endstring.state}}"
+            turn_off:
+            
+          fairy_lights_effect_15:
+            friendly_name: Гирлянда FairyLight. Эффект 15
+            icon_template: phu:scene-dynamic
+            unique_id: fairy_lights_effect_15
+            value_template: >
+              {%set effect_num = "15"%}
+              {%if is_state('sensor.fairy_effect', effect_num + '00fa') or is_state('sensor.fairy_effect', effect_num + '01f4') or is_state('sensor.fairy_effect', effect_num + '03e8')%}
+                true
+              {%- else -%}
+                false
+              {%- endif %}
+            turn_on:
+              service: input_select.set_options
+              target:
+                entity_id: input_select.da_fairy_lights_effects
+              data:
+                options: "{{'150' + states.sensor.fairy_lights_effects_brightness_endstring.state}}"
+            turn_off:
+            
+          fairy_lights_effect_16:
+            friendly_name: Гирлянда FairyLight. Эффект 16
+            icon_template: phu:scene-dynamic
+            unique_id: fairy_lights_effect_16
+            value_template: >
+              {%set effect_num = "16"%}
+              {%if is_state('sensor.fairy_effect', effect_num + '00fa') or is_state('sensor.fairy_effect', effect_num + '01f4') or is_state('sensor.fairy_effect', effect_num + '03e8')%}
+                true
+              {%- else -%}
+                false
+              {%- endif %}
+            turn_on:
+              service: input_select.set_options
+              target:
+                entity_id: input_select.da_fairy_lights_effects
+              data:
+                options: "{{'160' + states.sensor.fairy_lights_effects_brightness_endstring.state}}"
+            turn_off:
+            
+          fairy_lights_effect_17:
+            friendly_name: Гирлянда FairyLight. Эффект 17
+            icon_template: phu:scene-dynamic
+            unique_id: fairy_lights_effect_17
+            value_template: >
+              {%set effect_num = "17"%}
+              {%if is_state('sensor.fairy_effect', effect_num + '00fa') or is_state('sensor.fairy_effect', effect_num + '01f4') or is_state('sensor.fairy_effect', effect_num + '03e8')%}
+                true
+              {%- else -%}
+                false
+              {%- endif %}
+            turn_on:
+              service: input_select.set_options
+              target:
+                entity_id: input_select.da_fairy_lights_effects
+              data:
+                options: "{{'170' + states.sensor.fairy_lights_effects_brightness_endstring.state}}"
+            turn_off:
+            
+          fairy_lights_effect_18:
+            friendly_name: Гирлянда FairyLight. Эффект 18
+            icon_template: phu:scene-dynamic
+            unique_id: fairy_lights_effect_18
+            value_template: >
+              {%set effect_num = "18"%}
+              {%if is_state('sensor.fairy_effect', effect_num + '00fa') or is_state('sensor.fairy_effect', effect_num + '01f4') or is_state('sensor.fairy_effect', effect_num + '03e8')%}
+                true
+              {%- else -%}
+                false
+              {%- endif %}
+            turn_on:
+              service: input_select.set_options
+              target:
+                entity_id: input_select.da_fairy_lights_effects
+              data:
+                options: "{{'180' + states.sensor.fairy_lights_effects_brightness_endstring.state}}"
+            turn_off:
+            
+          fairy_lights_effect_19:
+            friendly_name: Гирлянда FairyLight. Эффект 19
+            icon_template: phu:scene-dynamic
+            unique_id: fairy_lights_effect_19
+            value_template: >
+              {%set effect_num = "19"%}
+              {%if is_state('sensor.fairy_effect', effect_num + '00fa') or is_state('sensor.fairy_effect', effect_num + '01f4') or is_state('sensor.fairy_effect', effect_num + '03e8')%}
+                true
+              {%- else -%}
+                false
+              {%- endif %}
+            turn_on:
+              service: input_select.set_options
+              target:
+                entity_id: input_select.da_fairy_lights_effects
+              data:
+                options: "{{'190' + states.sensor.fairy_lights_effects_brightness_endstring.state}}"
+            turn_off:
+            
+          fairy_lights_effect_20:
+            friendly_name: Гирлянда FairyLight. Эффект 20
+            icon_template: phu:scene-dynamic
+            unique_id: fairy_lights_effect_20
+            value_template: >
+              {%set effect_num = "20"%}
+              {%if is_state('sensor.fairy_effect', effect_num + '00fa') or is_state('sensor.fairy_effect', effect_num + '01f4') or is_state('sensor.fairy_effect', effect_num + '03e8')%}
+                true
+              {%- else -%}
+                false
+              {%- endif %}
+            turn_on:
+              service: input_select.set_options
+              target:
+                entity_id: input_select.da_fairy_lights_effects
+              data:
+                options: "{{'200' + states.sensor.fairy_lights_effects_brightness_endstring.state}}"
+            turn_off:
+
+
+
+    input_select:  
+    
+      da_fairy_lights_effects:
+        name: Список эффектов
+        options:
+          - 0103e8
+          - 0203e8
+          - 0303e8
+          - 0403e8
+          - 0503e8
+          - 0603e8
+          - 0703e8
+          - 0803e8
+          - 0903e8
+          - 1003e8
+          - 1103e8
+          - 1203e8
+          - 1303e8
+          - 1403e8
+          - 1503e8
+          - 1603e8
+          - 1703e8
+          - 1803e8
+          - 1903e8
+          - 2003e8
+
+         
+          
+    automation:
+
+      - alias: da_fairy_lights_effects
+        initial_state: true
+        trigger:
+        - platform: state
+          entity_id: input_select.da_fairy_lights_effects
+        condition:
+        - condition: state
+          entity_id: light.fairy_girlianda_na_kukhne
+          state: 'on'
+        action:
+        - choose:
+          - conditions:
+              - condition: state
+                entity_id: sensor.fairy_mode
+                state: 'scene'
+            sequence: 
+            - service: localtuya.set_dp
+              data_template:
+                device_id: bf1012ab8a79a7d7b7rugz
+                dp: 25
+                value: >
+                    {{states('input_select.da_fairy_lights_effects')}}
+          - conditions:
+             not:
+              - condition: state
+                entity_id: sensor.fairy_mode
+                state: 'scene'
+            sequence:
+            - service: localtuya.set_dp
+              data:
+                device_id: bf1012ab8a79a7d7b7rugz
+                dp: 21
+                value: "scene"
+            - service: localtuya.set_dp
+              data_template:
+                device_id: bf1012ab8a79a7d7b7rugz
+                dp: 25
+                value: >
+                    {{states('input_select.da_fairy_lights_effects')}}
+                    
+      - alias: da_fairy_lights_effect_change
+        initial_state: false
+        trigger:
+        - platform: time_pattern
+          minutes: '/5'
+        condition:
+        - condition: state
+          entity_id: light.fairy_girlianda_na_kukhne
+          state: 'on'
+        action:
+        - service: input_select.select_next
+          target:
+            entity_id: input_select.da_fairy_lights_effects 
+                    
